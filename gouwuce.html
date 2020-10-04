@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../vue.min.js"></script>
+		<link rel="stylesheet" href="gwc.css" type="text/css">
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<template v-if="list.length">
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>shangpingmingcheng</th>
+							<th>jia ge</th>
+							<th>gou mai shu liang</th>
+							<th>cao zuo</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr v-for="(item,index) in list">
+							<td>{{index +1}}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.price}}</td>
+							<td><button @click="djr(index)" :disabled="item.count===1">-</button>{{item.count}}
+								<button @click="djj(index)">+</button></td>
+							<td>
+								<button @click="yc(index)">yi chu</button>
+							</td>
+						</tr>
+					</tbody>
+
+				</table>
+				<!-- 新增全选，选中的东西计算，不选的不计算 -->
+				<!-- 新增类种 -->
+				<div>zhong jia:{{prices}}</div>
+
+			</template>
+			<div v-else>g w c wk</div>
+			
+		</div>
+		<script src="gwc.js"></script>
+	</body>
+</html>
